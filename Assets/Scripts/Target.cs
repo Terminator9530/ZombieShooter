@@ -27,6 +27,7 @@ public class Target : MonoBehaviour
         if(health <= 0f)
         {
             Destroy(gameObject);
+            FindObjectOfType<playerstats>().score += 1;
         }
     }
 }
