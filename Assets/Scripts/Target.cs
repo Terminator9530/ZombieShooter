@@ -9,6 +9,7 @@ public class Target : MonoBehaviour
     public Image healthBar;
     private float totalHealth;
     private float healthBarWidth;
+    public GameObject item;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class Target : MonoBehaviour
         if(health <= 0f)
         {
             Destroy(gameObject);
+            Instantiate(item,gameObject.transform.position + new Vector3(0,0.5f,0),gameObject.transform.rotation);
             FindObjectOfType<playerstats>().score += 1;
         }
     }

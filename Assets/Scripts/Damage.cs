@@ -28,10 +28,15 @@ public class Damage : MonoBehaviour
         {
             Debug.Log("Attacked");
             GetComponent<playerstats>().health -= 10f;
-            float health = GetComponent<playerstats>().health / 100;
-
-            // setting size of health bar
-            healthBar.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, health * healthBarWidth);
+            SetHealthBar();
         }
+    }
+
+    public void SetHealthBar()
+    {
+        float health = GetComponent<playerstats>().health / 100;
+
+        // setting size of health bar
+        healthBar.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, health * healthBarWidth);
     }
 }

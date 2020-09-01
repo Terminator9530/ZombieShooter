@@ -2429,6 +2429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthBar: {fileID: 902390709}
+  item: {fileID: 8091889701894260613, guid: eb2067e557064514d929fe7bdb7784ad, type: 3}
 --- !u!1 &91307657914247572
 GameObject:
   m_ObjectHideFlags: 0
