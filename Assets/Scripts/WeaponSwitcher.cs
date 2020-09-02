@@ -63,6 +63,12 @@ public class WeaponSwitcher : MonoBehaviour
             if (i == selectedWeapon)
             {
                 weapon.gameObject.SetActive(true);
+                if(weapon.gameObject.name == "Grenade Thrower")
+                {
+                    weapon.GetComponent<GrenadeTrajectory>().enabled = true;
+                    weapon.GetComponent<GrenadeTrajectory>().trajectory.SetActive(true);
+                }
+
                 if(weapon.tag == "OneShot")
                 {
                     weapon.GetComponent<OneShot>().noScopeCrossHair.SetActive(true);
@@ -76,6 +82,12 @@ public class WeaponSwitcher : MonoBehaviour
             else
             {
                 weapon.gameObject.SetActive(false);
+                if (weapon.gameObject.name == "Grenade Thrower")
+                {
+                    weapon.GetComponent<GrenadeTrajectory>().enabled = false;
+                    weapon.GetComponent<GrenadeTrajectory>().trajectory.SetActive(false);
+                }
+
                 if (weapon.tag == "OneShot")
                 {
                     weapon.GetComponent<OneShot>().noScopeCrossHair.SetActive(false);
