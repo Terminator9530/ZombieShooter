@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     bool isGameWin = false;
     bool isGameOver = false;
     public GameObject camera;
+    private bool isPaused = false;
+    public GameObject pauseMenuPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,27 @@ public class GameManager : MonoBehaviour
         if (isGameWin || isGameOver)
         {
             return;
+        }
+
+        if(player != null)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                if (isPaused)
+                {
+                    isPaused = false;
+                    Time.timeScale = 1f;
+                    pauseMenuPanel.SetActive(false);
+                }
+                else
+                {
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    isPaused = true;
+                    Time.timeScale = 0f;
+                    pauseMenuPanel.SetActive(true);
+                }
+            }
         }
 
         if(player != null)

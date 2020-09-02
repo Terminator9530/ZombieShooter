@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
@@ -9,11 +10,19 @@ public class MainMenu : MonoBehaviour
     public GameObject AboutUsPanel;
     public GameObject SettingsPanel;
     public GameObject PrivacyPanel;
+    public GameObject ControlsPanel;
+    public GameObject PauseMenuPanel;
     public Slider slider;
     // Start is called before the first frame update
 
     private void Start()
     {
+        if(AboutUsPanel != null)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         if (PlayerPrefs.HasKey("Volume"))
         {
             slider.value = PlayerPrefs.GetFloat("Volume");
@@ -31,6 +40,7 @@ public class MainMenu : MonoBehaviour
         AboutUsPanel.SetActive(false);
         SettingsPanel.SetActive(false);
         PrivacyPanel.SetActive(false);
+        ControlsPanel.SetActive(false);
     }
 
     public void AboutMethod()
@@ -41,7 +51,10 @@ public class MainMenu : MonoBehaviour
 
     public void SettingsMethod()
     {
-        MainMenuPanel.SetActive(false);
+        if (MainMenuPanel != null)
+            MainMenuPanel.SetActive(false);
+        else
+            PauseMenuPanel.SetActive(false);
         SettingsPanel.SetActive(true);
     }
 
@@ -49,6 +62,12 @@ public class MainMenu : MonoBehaviour
     {
         MainMenuPanel.SetActive(false);
         PrivacyPanel.SetActive(true);
+    }
+
+    public void ControlMethod()
+    {
+        MainMenuPanel.SetActive(false);
+        ControlsPanel.SetActive(true);
     }
 
     public void OpenGitHub()
@@ -74,5 +93,22 @@ public class MainMenu : MonoBehaviour
     public void AdjustVolume(float vol)
     {
         PlayerPrefs.SetFloat("Volume", vol);
+    }
+
+    public void MainMenuScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void RetryLevel()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void PauseMenuMethod()
+    {
+        PauseMenuPanel.SetActive(true);
+        SettingsPanel.SetActive(false);
     }
 }
