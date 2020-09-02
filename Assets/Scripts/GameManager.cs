@@ -35,7 +35,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isGameWin || isGameOver)
+        gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("Volume");
+        if (isGameWin || isGameOver)
         {
             return;
         }
@@ -100,5 +101,10 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         PlayAudio(backgroundMusic, true);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
