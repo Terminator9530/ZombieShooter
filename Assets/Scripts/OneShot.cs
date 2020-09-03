@@ -141,4 +141,9 @@ public class OneShot : MonoBehaviour
         currentAmmo = maxAmmo;
         ammo.text = currentAmmo + "/" + totalBullets;
     }
+
+    public void UpdateAmmoOnGUI()
+    {
+        ammo.text = currentAmmo + "/" + totalBullets;
+    }
 }

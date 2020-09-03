@@ -7,6 +7,8 @@ TagManager:
   - OneShot
   - MultiShot
   - Zombie
+  - Bullets
+  - HealthKit
   layers:
   - Default
   - TransparentFX

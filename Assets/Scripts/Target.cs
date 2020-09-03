@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Target : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Target : MonoBehaviour
     public Image healthBar;
     private float totalHealth;
     private float healthBarWidth;
-    public GameObject item;
+    public GameObject[] items;
 
     private void Start()
     {
@@ -27,8 +28,8 @@ public class Target : MonoBehaviour
 
         if(health <= 0f)
         {
+            Instantiate(items[Random.Range(0,items.Length)], gameObject.transform.position + new Vector3(0, 0.5f, 0), gameObject.transform.rotation);
             Destroy(gameObject);
-            Instantiate(item,gameObject.transform.position + new Vector3(0,0.5f,0),gameObject.transform.rotation);
             FindObjectOfType<playerstats>().score += 1;
         }
     }

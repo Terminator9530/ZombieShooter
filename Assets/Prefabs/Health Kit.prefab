@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1343538333}
   m_Layer: 0
   m_Name: Health Kit
-  m_TagString: Untagged
+  m_TagString: HealthKit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6a1d68f92f56443bac8530370449cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponHolder: {fileID: 0}
