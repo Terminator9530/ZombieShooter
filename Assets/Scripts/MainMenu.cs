@@ -70,24 +70,24 @@ public class MainMenu : MonoBehaviour
         ControlsPanel.SetActive(true);
     }
 
-    public void OpenGitHub()
+    public void OpenGitHub(string name)
     {
-        Application.OpenURL("https://github.com/Terminator9530");
+        Application.OpenURL("https://github.com/" + name);
     }
 
-    public void OpenTwitter()
+    public void OpenTwitter(string name)
     {
-        Application.OpenURL("https://twitter.com/Vaibhav93959245");
+        Application.OpenURL("https://twitter.com/" + name);
     }
 
-    public void OpenLinkedIn()
+    public void OpenLinkedIn(string name)
     {
-        Application.OpenURL("https://www.linkedin.com/in/vaibhav-shukla-078ba419b/");
+        Application.OpenURL("https://www.linkedin.com/in/" + name);
     }
 
-    public void OpenFacebook()
+    public void OpenFacebook(string name)
     {
-        Application.OpenURL("https://www.facebook.com/vaibhav.shukla.79230/");
+        Application.OpenURL("https://www.facebook.com/" + name);
     }
 
     public void AdjustVolume(float vol)
